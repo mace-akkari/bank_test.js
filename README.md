@@ -51,5 +51,5 @@ so I can know how much money I got
 ```
 As a user, when I want to know a history of my transactions
 I want to be able to get a statement with all my transactions
-so I can know what is going on with my  money
+so I can know what is going on with my money
 ```

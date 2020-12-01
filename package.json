@@ -1,0 +1,19 @@
+{
+  "name": "bank_test",
+  "version": "1.0.0",
+  "description": "Today, I am going to practice doing a tech test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mace-akkari/bank_test.js.git"
+  },
+  "author": "maceplus@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mace-akkari/bank_test.js/issues"
+  },
+  "homepage": "https://github.com/mace-akkari/bank_test.js#readme"
+}
