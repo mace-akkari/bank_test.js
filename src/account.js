@@ -9,8 +9,10 @@ class Account {
   }
   
   withdraw(amount) {
-    this.balance -= amount;
+    let lowBalance = this.balance - amount <= 0
+    lowBalance ? "You're broke mate, try a lower amount" : this.balance -= amount;
   }
+
 
 }
 

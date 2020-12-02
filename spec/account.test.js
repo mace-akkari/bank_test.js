@@ -15,7 +15,12 @@ test('depositing £100 changes the balance to 100', () => {
   expect(userAccount.balance).toBe(100);
 });
 
+
 test('withdrawing cash from the account', () => {
   userAccount.withdraw(50);
   expect(userAccount.balance).toBe(50);
+});
+
+test('withdrawal on balance of below 0 denied', () => {
+  expect(() => userAccount.withdraw(60).toEqual("You're broke mate, try a lower amount"));
 });
