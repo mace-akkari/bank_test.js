@@ -16,6 +16,12 @@ class Transaction {
     }; 
   };
 
+  formatTransaction() {
+    if (typeof this.credit == "number") {
+      return `${this.date} || ${this.credit.toFixed(2)} || || ${this.balance.toFixed(2)}`;
+    }else (typeof debit === "number") 
+      return `${this.date} || || ${this.debit.toFixed(2)} || ${this.balance.toFixed(2)}`;
+    }
 }
 
 

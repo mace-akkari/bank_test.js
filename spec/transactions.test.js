@@ -35,3 +35,21 @@ test('returns the transactions statment', () => {
     balance: 0
   });
 });
+
+describe('formats the credit and debit transaction into a string', () => { 
+  test('creates a credit transaction into a string', () => {
+    date = "02/12/2020";
+    let creditTransaction = new Transaction(0, 200, null, 500);
+    expect(creditTransaction.formatTransaction()).toEqual(
+      "02/12/2020 || 200.00 || || 500.00")
+  });
+  test('creates a debit transaction into a string', () => {
+    date = "02/12/2020";
+    let creditTransaction = new Transaction(0, null, 100, 400);
+    expect(creditTransaction.formatTransaction()).toEqual(
+      "02/12/2020 || || 100.00 || 400.00")
+  });
+
+});
+  
+
