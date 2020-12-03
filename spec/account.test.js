@@ -40,7 +40,7 @@ describe("#deposit", () => {
 describe("#withdraw", () => {
   it("updates account balance with the withdrawn amount", () => {
     const formatTransactionSpy = jest.spyOn(Transaction.prototype, 'formatTransaction').mockImplementation((credit, debit, balance) => {
-      return '30/09/2020 || || 15.00 || 30.00'
+      return '30/09/2020 || || 15.00 || 15.00'
     })
     let userAccount = new Account();
     userAccount.balance = 30;
@@ -58,4 +58,27 @@ describe("#withdraw", () => {
     ]);
 
   });
+
+  describe("#statement", () => {
+    it("retunrs transaction history on a table format", () => {
+      const formatTransactionSpy = jest.spyOn(Account.prototype, 'statement').mockImplementation((credit, debit, balance) => {
+        return "date || credit || debit || balance\n" +
+        "06/12/2020 || 30.00 || || 30.00\n" +
+        "08/12/2020 || 30.00 || || 60.00\n" +
+        "12/12/2020 || 30.00 || || 90.00\n" +
+        "22/12/2020 || || 30.00 || 60.00\n"
+  
+      })
+      let userStatment = new Account();
+      expect(userStatment.statement()).toEqual(
+        "date || credit || debit || balance\n" +
+          "06/12/2020 || 30.00 || || 30.00\n" +
+          "08/12/2020 || 30.00 || || 60.00\n" +
+          "12/12/2020 || 30.00 || || 90.00\n" +
+          "22/12/2020 || || 30.00 || 60.00\n"
+      );
+    });
+  });
+
+
 });

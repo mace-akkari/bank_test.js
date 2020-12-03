@@ -17,6 +17,13 @@ class Account {
     const debit = new Transaction(null, amount, this.balance);
     this.transactionHistory.push(debit.formatTransaction());
   }
+  
+  statement() {
+    console.log("date || credit || debit || balance\n");
+    for (let transaction of this.transactionHistory) {
+      console.log(transaction);
+    }
+  }
 
 }
 
