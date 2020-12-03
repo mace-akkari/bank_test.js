@@ -18,5 +18,6 @@
   "homepage": "https://github.com/mace-akkari/bank_test.js#readme",
   "devDependencies": {
     "jest": "^26.6.3"
-  }
+  },
+  "dependencies": {}
 }
