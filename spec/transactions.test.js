@@ -26,10 +26,10 @@ test('credit transactions have type credit', () => {
 });
 
 test('returns the transactions statment', () => {
-  date = "02/12/2020";
+  userTransaction.date = "01/12/2020";
   userTransaction.credit = 300;
   expect(userTransaction.getTransaction()).toEqual({
-    date: "02/12/2020",
+    date: "01/12/2020",
     credit: 300,
     debit: null,
     balance: 0
@@ -38,18 +38,20 @@ test('returns the transactions statment', () => {
 
 describe('formats the credit and debit transaction into a string', () => { 
   test('creates a credit transaction into a string', () => {
-    date = "02/12/2020";
     let creditTransaction = new Transaction(0, 200, null, 500);
+    creditTransaction.date = "07/12/2020";
     expect(creditTransaction.formatTransaction()).toEqual(
-      "02/12/2020 || 200.00 || || 500.00")
+      "07/12/2020 || 200.00 || || 500.00")
   });
   test('creates a debit transaction into a string', () => {
-    date = "02/12/2020";
     let creditTransaction = new Transaction(0, null, 100, 400);
+    creditTransaction.date = "16/12/2020";
     expect(creditTransaction.formatTransaction()).toEqual(
-      "02/12/2020 || || 100.00 || 400.00")
+      "16/12/2020 || || 100.00 || 400.00")
   });
 
 });
   
 
+
+ 
