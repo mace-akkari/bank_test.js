@@ -1,5 +1,4 @@
 const Account = require('../src/account');
-const sinon = require("sinon");
 const Transaction = require('../src/transactions');
 
 
@@ -35,5 +34,28 @@ describe("#deposit", () => {
     expect(userAccount.transactionHistory).toEqual([
       "02/02/2020 || 15.00 || || 15.00",
     ]);
+  });
+});
+
+describe("#withdraw", () => {
+  it("updates account balance with the withdrawn amount", () => {
+    const formatTransactionSpy = jest.spyOn(Transaction.prototype, 'formatTransaction').mockImplementation((credit, debit, balance) => {
+      return '30/09/2020 || || 15.00 || 30.00'
+    })
+    let userAccount = new Account();
+    userAccount.balance = 30;
+    userAccount.withdraw(15);
+    expect(userAccount.balance).toEqual(15);
+  });
+  it("adds withdrawal to transaction history", () => {
+    const formatTransactionSpy = jest.spyOn(Transaction.prototype, 'formatTransaction').mockImplementation((credit, debit, balance) => {
+      return '30/09/2020 || || 20.00 || -5.00'
+    })
+    let userAccount = new Account();
+    userAccount.withdraw(20);
+    expect(userAccount.transactionHistory).toEqual([
+      "30/09/2020 || || 20.00 || -5.00",
+    ]);
+
   });
 });

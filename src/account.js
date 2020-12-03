@@ -13,10 +13,10 @@ class Account {
   }
   
   withdraw(amount) {
-    let lowBalance = this.balance - amount <= 0
-    lowBalance ? "You're broke mate, try a lower amount" : this.balance -= amount;
+    this.balance -= amount;
+    const debit = new Transaction(null, amount, this.balance);
+    this.transactionHistory.push(debit.formatTransaction());
   }
-
 
 }
 
